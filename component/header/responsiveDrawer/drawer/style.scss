@@ -1,0 +1,68 @@
+@import '~theme/_mixins.scss';
+
+.drawer {
+  &__drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem 0.5rem;
+
+    a {
+      width: 2.25rem;
+      height: 2.25rem;
+      text-align: center;
+      line-height: 2.2;
+      border-radius: 50%;
+
+      &:hover {
+        background: var(--color-lightest-grey);
+      }
+    }
+  }
+  &__closeMenuButton {
+    margin-right: 0;
+    padding: 0;
+    margin-left: auto;
+    color: var(--color-azure);
+  }
+  &__navList {
+    padding: 1rem 1.5rem 1rem;
+  }
+  &__navList-item {
+    color: var(--color-slate-grey);
+    line-height: 2.5rem;
+    a {
+      color: var(--color-slate-grey);
+      display: block;
+
+      &.current,
+      &:hover {
+        color: var(--color-azure);
+        text-decoration: none;
+      }
+    }
+
+    &__active-nav {
+      color: var(--color-azure) !important;
+    }
+  }
+  &__drawer {
+    width: 100vw;
+    flex-shrink: 0;
+    background: var(--color-light-grey);
+    flex-shrink: 0;
+    min-height: 100vh;
+    -webkit-transition: 0.3s ease-out;
+    -moz-transition: 0.3s ease-out;
+    -o-transition: 0.3s ease-out;
+    transition: 0.3s ease-out;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    @include transform(translateX(-100%));
+
+    &--visible {
+      @include transform(translateX(0));
+    }
+  }
+}

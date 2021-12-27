@@ -1,0 +1,68 @@
+@import '~theme/_mixins.scss';
+@import '~theme/_mediaQueryMixins';
+
+.toolbar {
+  &__header {
+    background-color: var(--color-lightest-grey);
+    padding: 0.75rem 1.2rem;
+    justify-content: space-between;
+    display: flex;
+
+    @include respondBelow(sm) {
+      a {
+        max-width: 200px;
+      }
+    }
+  }
+
+  &__iconList {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .accountAvtar {
+      width: auto;
+      display: flex;
+      padding: 0 10px;
+      align-items: center;
+      border-radius: 40px;
+      justify-content: center;
+    }
+
+    li {
+      display: flex;
+      margin: 0;
+      width: 2.25rem;
+      height: 2.25rem;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      cursor: pointer;
+      position: relative;
+
+      &.active {
+        background: var(--color-light-grey);
+      }
+
+      &:hover {
+        background: var(--color-light-grey);
+      }
+
+      button {
+        color: var(--color-azure);
+        padding: 0 0 3px;
+      }
+
+      a {
+        color: var(--color-azure);
+        display: inline-block;
+        padding: 0.4rem 0.5rem;
+
+        &.current {
+          color: var(--color-azure);
+        }
+      }
+    }
+  }
+}

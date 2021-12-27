@@ -1,0 +1,134 @@
+@import './theme/_mediaQueryMixins';
+@import './theme/_mixins';
+
+.customForm {
+  width: 100%;
+  .form-row {
+    align-items: center;
+
+    .col,
+    > [class*='col-'] {
+      padding-right: 8px;
+      padding-left: 8px;
+    }
+  }
+
+  .form-group {
+    margin-top: 0.5rem;
+    text-align: left;
+    .datePicker {
+      position: relative;
+
+      &__icon {
+        color: var(--color-azure);
+        position: absolute;
+        z-index: 9;
+        top: 50%;
+        right: 20px;
+        font-size: 1.5rem;
+        @include transform(translateY(-50%));
+
+        @include respondBelow(xl) {
+          font-size: 1rem;
+        }
+      }
+    }
+    .react-datepicker-wrapper {
+      max-width: 100%;
+
+      input {
+        position: relative;
+        z-index: 10;
+        max-width: 100%;
+        cursor: pointer;
+        border-width: 1px;
+        background: transparent;
+        color: var(--color-slate-grey);
+      }
+    }
+
+    .form-control,
+    .react-datepicker-wrapper input {
+      padding: 1rem 1.5rem;
+      height: auto;
+      border-radius: 8px;
+      font-weight: 700;
+      font-family: PoppinsLight;
+      border-color: var(--color-cloudy-blue);
+
+      &:focus {
+        box-shadow: none;
+        outline: none;
+      }
+
+      &.invalid {
+        border-color: var(--color-lipstick);
+      }
+
+      @include respondBelow(xl) {
+        padding: 0.8rem 1.5rem;
+      }
+    }
+    select {
+      -moz-appearance: none; /* Firefox */
+      -webkit-appearance: none; /* Safari and Chrome */
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='black' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: 95%;
+      background-size: 0.5rem;
+      cursor: pointer;
+    }
+    .form-label {
+      font-family: PoppinsMedium;
+      font-size: 1.2rem;
+      color: var(--color-slate-grey);
+
+      &.optional {
+        color: var(--color-cloudy-blue);
+      }
+
+      @include respondBelow(xl) {
+        font-size: 1rem;
+      }
+    }
+
+    .form-check-input {
+      margin-top: 0.1rem;
+      margin-left: -2rem;
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+
+    @include respondBelow(sm) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .checkboxList--small {
+    li {
+      margin-bottom: 1rem;
+
+      .custom-control-label {
+        font-family: Poppins;
+        font-size: 0.5rem;
+
+        &:before,
+        &:after {
+          top: -0.15rem;
+        }
+
+        a {
+          display: inline-block;
+          margin-left: 0.3rem;
+          text-decoration: underline;
+          color: var(--color-slate-grey);
+        }
+      }
+    }
+  }
+
+  .error {
+    color: var(--color-lipstick);
+  }
+}

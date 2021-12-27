@@ -1,0 +1,42 @@
+@import '~theme/_mediaQueryMixins';
+
+.gridList {
+  &__item {
+    width: 100%;
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    background: var(--color-white);
+    box-shadow: 0 7px 35px 0 rgba(92, 117, 145, 0.1), 0 15px 22px 0 rgba(90, 97, 105, 0.1),
+      0 4px 8px 0 rgba(90, 97, 105, 0.12), 0 2px 3px 0 rgba(90, 97, 105, 0.11);
+
+    img {
+      @include respondBelow(sm) {
+        height: auto;
+      }
+    }
+    &.placeholder {
+      background: var(--color-lightest-grey);
+      height: calc(100% - 32px); /*subtract height of offer banner*/
+      border: 2px dotted var(--color-cloudy-blue);
+      box-shadow: none;
+    }
+
+    @include respondBelow(sm) {
+      // max-width: 400px;
+      margin: auto;
+    }
+  }
+  .row {
+    [class*='col-'] {
+      .gridList__item {
+        height: 100%;
+        border-radius: 18px;
+      }
+    }
+  }
+  @include respondBelow(sm) {
+    overflow: hidden;
+    padding: 2rem;
+  }
+}

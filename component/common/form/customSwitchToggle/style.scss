@@ -1,0 +1,41 @@
+@import './theme/_mediaQueryMixins';
+
+.custom-switch {
+  padding-left: 0 !important;
+  padding-top: 1rem;
+  display: flex;
+
+  .custom-control-label {
+    cursor: pointer;
+    padding-top: 0.3rem;
+    padding-left: 1.3rem;
+    user-select: none;
+
+    &::before {
+      left: -2.25rem !important;
+      height: 1.5rem !important;
+      width: 3rem !important;
+      border-radius: 2rem !important;
+    }
+
+    &::after {
+      top: calc(0.25rem + 3px) !important;
+      left: calc(-2.25rem + 4px) !important;
+      width: calc(1.5rem - 6px) !important;
+      height: calc(1.5rem - 6px) !important;
+      border-radius: 2rem !important;
+    }
+  }
+
+  .custom-control-input:checked {
+    ~ .custom-control-label {
+      &::after {
+        transform: translateX(1.35rem) !important;
+      }
+      &::before {
+        border-color: var(--color-azure);
+        background-color: var(--color-azure);
+      }
+    }
+  }
+}

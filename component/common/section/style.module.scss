@@ -1,0 +1,18 @@
+@import '../../../theme/_mediaQueryMixins';
+
+.section {
+  padding: 5rem 0;
+
+  &__richText {
+    display: block;
+    margin-bottom: 4rem;
+
+    @include respondBelow(xl) {
+      margin-bottom: 3rem;
+    }
+  }
+
+  @include respondBelow(xl) {
+    padding: 4rem 0;
+  }
+}

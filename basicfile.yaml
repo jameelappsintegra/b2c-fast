@@ -1,0 +1,122 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: b2c-frontend-deployment
+  namespace: b2c
+  labels:
+    app: b2c-frontend
+spec:
+  selector:
+    matchLabels:
+      app: b2c-frontend
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  minReadySeconds: 15
+  template:
+    metadata:
+      labels:
+        app: b2c-frontend
+    spec:
+      containers:
+        - name: b2c-frontend
+          image: cnghlcommprod.azurecr.io/b2c/frontend/b2cfe:{BUILD_ID}
+          ports:
+            - containerPort: 3000
+          env:
+            - name: NEXT_PUBLIC_AZURE_CLIENT_ID
+              valueFrom:
+                configMapKeyRef:
+                  name: b2c-frontend-config-map
+                  key: NEXT_PUBLIC_AZURE_CLIENT_ID
+            - name: NEXT_PUBLIC_SIGNUP_SIGNIN_AUTHORITY
+              valueFrom:
+                configMapKeyRef:
+                  name: b2c-frontend-config-map
+                  key: NEXT_PUBLIC_SIGNUP_SIGNIN_AUTHORITY
+            - name: NEXT_PUBLIC_SIGNUP_AUTHORITY
+              valueFrom:
+                configMapKeyRef:
+                  name: b2c-frontend-config-map
+                  key: NEXT_PUBLIC_SIGNUP_AUTHORITY
+            - name: NEXT_PUBLIC_FORGOT_PASSWORD_AUTHORITY
+              valueFrom:
+                configMapKeyRef:
+                  name: b2c-frontend-config-map
+                  key: NEXT_PUBLIC_FORGOT_PASSWORD_AUTHORITY
+            - name: NEXT_PUBLIC_EDIT_PROFILE_AUTHORITY
+              valueFrom:
+                configMapKeyRef:
+                  name: b2c-frontend-config-map
+                  key: NEXT_PUBLIC_EDIT_PROFILE_AUTHORITY
+            - name: NEXT_PUBLIC_AZURE_REDIRECT_URI
+              valueFrom:
+                configMapKeyRef:
+                  name: b2c-frontend-config-map
+                  key: NEXT_PUBLIC_AZURE_REDIRECT_URI
+            - name: NEXT_PUBLIC_AZURE_LOGIN_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: b2c-frontend-config-map
+                  key: NEXT_PUBLIC_AZURE_LOGIN_URL
+            - name: BASE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: b2c-frontend-config-map
+                  key: BASE_URL
+            - name: NEXT_PUBLIC_AZURE_LOGIN_ROPC
+              valueFrom:
+                configMapKeyRef:
+                  name: b2c-frontend-config-map
+                  key: NEXT_PUBLIC_AZURE_LOGIN_ROPC
+            - name: GUEST_EMAIL_ID
+              valueFrom:
+                configMapKeyRef:
+                  name: b2c-frontend-config-map
+                  key: GUEST_EMAIL_ID
+            - name: NEXT_PUBLIC_APPINSIGHT_ACCOUNT_ID
+              valueFrom:
+                configMapKeyRef:
+                  name: b2c-frontend-config-map
+                  key: NEXT_PUBLIC_APPINSIGHT_ACCOUNT_ID
+            - name: NEXT_PUBLIC_INSTRUMENTATION_KEY
+              valueFrom:
+                configMapKeyRef:
+                  name: b2c-frontend-config-map
+                  key: NEXT_PUBLIC_INSTRUMENTATION_KEY
+            - name: NEXT_PUBLIC_BASE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: b2c-frontend-config-map
+                  key: NEXT_PUBLIC_BASE_URL
+            - name: NEXT_PUBLIC_CMS_API_ENDPOINT
+              valueFrom:
+                configMapKeyRef:
+                  name: b2c-frontend-config-map
+                  key: NEXT_PUBLIC_CMS_API_ENDPOINT
+            - name: NEXT_PUBLIC_ORG_ID
+              valueFrom:
+                configMapKeyRef:
+                  name: b2c-frontend-config-map
+                  key: NEXT_PUBLIC_ORG_ID
+            - name: GUEST_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: b2c-frontend-secret
+                  key: GUEST_PASSWORD
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: b2c-frontend
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-internal: 'true'
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 3000
+      targetPort: 3000
+  selector:
+    app: b2c-frontend

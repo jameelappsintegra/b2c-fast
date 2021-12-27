@@ -1,0 +1,13 @@
+.gitignore
+dist/
+build/
+coverage/
+node_modules/
+package-lock.json
+yarn.lock
+yarn-error.log
+.vscode
+Dockerfile*
+docker-compose.*
+README.md
+.env*

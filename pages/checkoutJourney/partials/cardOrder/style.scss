@@ -1,0 +1,24 @@
+.card--order {
+  .orderDetails {
+    tbody {
+      max-height: 220px;
+      display: block;
+      overflow-y: auto;
+    }
+
+    tbody,
+    tfoot {
+      tr {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+      }
+    }
+
+    tfoot {
+      td {
+        padding-top: 1rem !important;
+      }
+    }
+  }
+}

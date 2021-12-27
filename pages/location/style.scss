@@ -1,0 +1,14 @@
+@import '~theme/_mediaQueryMixins';
+
+.mapLocation {
+  display: flex;
+  min-height: 550px;
+
+  img {
+    flex: 1 1 auto;
+  }
+
+  @include respondAbove(xl) {
+    min-height: 650px;
+  }
+}

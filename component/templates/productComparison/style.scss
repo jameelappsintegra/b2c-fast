@@ -1,0 +1,68 @@
+@import '~theme/_mediaQueryMixins';
+
+.productComparison {
+  box-shadow: 0 -2px 15px 0 rgba(0, 0, 0, 0.1);
+  position: fixed;
+  bottom: 0;
+  z-index: 10;
+  width: 100%;
+  background: var(--color-white);
+
+  &__inner {
+    padding: 2rem 0;
+
+    > h4 {
+      font-family: PoppinsMedium;
+      font-size: 1.75rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      a {
+        padding-left: 6rem;
+        padding-right: 6rem;
+      }
+
+      @include respondBelow(xl) {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+      }
+
+      @include respondBelow(sm) {
+        display: flex;
+        font-size: 1rem;
+        font-weight: 600;
+        text-align: left;
+        flex-direction: column;
+        align-items: flex-start;
+
+        > span {
+          margin-bottom: 2rem;
+
+          @include respondBelow(sm) {
+            margin-bottom: 1rem;
+          }
+        }
+
+        .appButton {
+          align-self: center;
+        }
+      }
+    }
+
+    @include respondBelow(xl) {
+      padding: 1.2rem 0;
+    }
+
+    @include respondBelow(sm) {
+      padding: 2rem 0 1.2rem;
+    }
+  }
+
+  &__list {
+    display: inline-flex;
+    width: 100%;
+    gap: 1rem;
+  }
+}

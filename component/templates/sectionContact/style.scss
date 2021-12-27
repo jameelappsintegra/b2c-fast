@@ -1,0 +1,15 @@
+@import '~theme/_mediaQueryMixins';
+
+.sectionGridSorting {
+  h3 {
+    color: var(--color-white);
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    font-family: PoppinsMedium;
+
+    @include respondBelow(xl) {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+  }
+}

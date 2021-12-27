@@ -1,0 +1,100 @@
+.responsiveWeekTabs {
+  &.tabHeaders {
+    display: flex;
+
+    span {
+      &.active {
+        flex: 1 1;
+      }
+    }
+  }
+}
+
+.responsiveDaysComponent {
+  box-shadow: 0 0 25px 0 rgba(40, 47, 60, 0.05), 0 20px 25px 0 rgba(40, 47, 60, 0.05),
+    0 3px 4px 0 rgba(40, 47, 60, 0.05);
+  &__dropdown {
+    background-color: azure;
+    padding: 1.5rem 1rem;
+
+    .form-group {
+      margin: 0;
+    }
+  }
+
+  &__timeSlots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > div {
+      flex: 1;
+      > div {
+        padding: 0 1.5rem;
+      }
+
+      p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+  &__timeCol {
+    > div {
+      display: flex;
+      min-height: 70px;
+
+      p {
+        margin: 0;
+        font-size: 1.1rem;
+        color: var(--color-mid-grey);
+      }
+    }
+    div:nth-child(2n-1) {
+      background-color: var(--color-lightest-grey);
+    }
+  }
+  &__slotsCol {
+    > div {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    p {
+      color: var(--color-azure);
+      cursor: pointer;
+      border: 1px solid var(--color-azure);
+      text-align: center;
+      margin-bottom: 0;
+      text-transform: capitalize;
+      user-select: none;
+      min-width: 110px;
+      padding: 0.2rem 1rem;
+    }
+
+    .emptySlot {
+      p {
+        border: 1px dotted var(--color-cloudy-blue);
+        cursor: default;
+      }
+    }
+
+    .isSelected {
+      p {
+        cursor: pointer;
+        background-color: var(--color-azure);
+        color: var(--color-white);
+      }
+    }
+  }
+
+  &__timeCol,
+  &__slotsCol {
+    > div:nth-child(2n-1) {
+      background-color: var(--color-lightest-grey);
+    }
+  }
+}

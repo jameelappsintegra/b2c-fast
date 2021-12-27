@@ -1,0 +1,66 @@
+@import '~theme/_mediaQueryMixins';
+
+.contactDetails {
+  a {
+    color: var(--color-azure);
+  }
+
+  ul,
+  &__rightOuter {
+    width: 85%;
+    margin-left: auto;
+
+    @include respondBelow(sm) {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+  }
+
+  ul {
+    width: 65%;
+    padding-right: 2rem;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--color-slate-grey);
+      margin-bottom: 0.6rem;
+
+      span:last-child {
+        color: var(--color-dark-grey);
+        font-family: PoppinsMedium;
+      }
+    }
+
+    @include respondBelow(sm) {
+      width: 100%;
+      padding: initial;
+    }
+  }
+
+  &__upperBlock {
+    label {
+      span {
+        margin-right: 0.3rem;
+      }
+    }
+  }
+  &__upperBlock,
+  &__lowerBlock {
+    label {
+      display: block;
+      color: var(--color-dark-grey);
+      font-family: PoppinsMedium;
+    }
+  }
+
+  ul li,
+  label {
+    font-size: 1.4rem;
+
+    @include respondBelow(xl) {
+      font-size: 1rem;
+    }
+  }
+}

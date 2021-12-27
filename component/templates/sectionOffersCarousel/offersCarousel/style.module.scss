@@ -1,0 +1,227 @@
+@import '../../../../theme/_mediaQueryMixins';
+@import '../../../../theme/_mixins';
+
+.carousel {
+  .itemContainer {
+    text-align: center;
+
+    > div {
+      @include boxShadow();
+      overflow: hidden;
+      border-radius: 18px;
+    }
+    a {
+      transition: 0.2s all ease;
+      margin: 3rem 0 0;
+      font-size: 1.25rem;
+      color: var(--color-white);
+      padding: 0.5rem 2.5rem;
+      border: 2px solid var(--color-azure);
+      border-radius: 40px;
+
+      &:hover {
+        text-decoration: none;
+        color: var(--color-white);
+        background-color: var(--color-azure);
+        border-color: var(--color-azure);
+      }
+
+      @include respondBelow(xl) {
+        margin: 2rem 0 0;
+        font-size: 1rem;
+      }
+    }
+  }
+
+  &.carousel--light {
+    .itemContainer {
+      a {
+        color: var(--color-azure);
+
+        &:hover {
+          color: var(--color-white);
+        }
+      }
+    }
+  }
+
+  .title {
+    margin-bottom: 1rem;
+    color: var(--color-white);
+    font-size: 1rem;
+    line-height: 1.77;
+
+    @include respondBelow(xl) {
+      font-size: 1rem;
+    }
+
+    @include respondBelow(sm) {
+      font-size: 1rem;
+    }
+  }
+
+  .thumbContainer {
+    background: white;
+    border-radius: 18px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    background: var(--color-light-grey);
+    padding-top: 3rem;
+    flex: 1;
+    margin: 0;
+    min-height: 250px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    &__imageOuter {
+      width: 90% !important;
+      overflow: hidden;
+
+      @include respondAbove(xl) {
+        height: 300px;
+      }
+
+      @include respondBelow(xl) {
+        height: 200px;
+      }
+    }
+
+    img {
+      position: relative;
+    }
+
+    .placeholder {
+      width: 100%;
+      height: 100%;
+      top: 7%;
+      left: 17%;
+      position: absolute;
+      background: #e1e2e7;
+      box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    @include respondAbove(xl) {
+      min-height: 350px;
+    }
+  }
+
+  .descriptionContainer {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 18px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+
+    p {
+      font-size: 1.875rem;
+      font-family: PoppinsMedium;
+      display: flex;
+      margin: 0;
+      justify-content: center;
+      align-items: center;
+      color: var(--color-mid-grey);
+
+      @include respondBelow(xl) {
+        font-size: 1.275rem;
+      }
+
+      @include respondBelow(sm) {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  &.carousel--light {
+    .descriptionContainer {
+      p {
+        color: var(--color-mid-grey);
+      }
+    }
+  }
+
+  .owl-theme {
+    margin: auto;
+
+    .owl-nav.disabled {
+      + .owl-dots {
+        padding: 2rem 0 1rem;
+        margin: 0;
+
+        @include respondBelow(xl) {
+          padding: 1rem 0;
+        }
+      }
+    }
+
+    .owl-dots {
+      .owl-dot {
+        span {
+          width: 1.25rem;
+          height: 1.25rem;
+          margin: 0.5rem 0.7rem;
+          @include backgroundColorOpacity(var(--color-light-grey-rgb), 0.3);
+
+          @include respondBelow(xl) {
+            width: 1rem;
+            height: 1rem;
+          }
+
+          @include respondBelow(sm) {
+            margin: 0.4rem;
+            width: 0.625rem;
+            height: 0.625rem;
+          }
+        }
+        &:hover {
+          span {
+            background: var(--color-azure);
+          }
+        }
+        &.active {
+          span {
+            background: var(--color-azure);
+          }
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .owl-stage {
+      margin: auto;
+    }
+
+    @include respondAbove(xl) {
+      max-width: 100%;
+    }
+
+    @include respondBelow(xl) {
+      max-width: 66%;
+    }
+
+    @include respondBelow(md) {
+      max-width: 100%;
+    }
+  }
+
+  &.carousel--light {
+    .owl-theme {
+      .owl-dots {
+        .owl-dot {
+          span {
+            @include backgroundColorOpacity(var(--color-slate-grey-rgb), 0.3);
+          }
+          &.active {
+            span {
+              background: var(--color-azure);
+            }
+          }
+        }
+      }
+    }
+  }
+}

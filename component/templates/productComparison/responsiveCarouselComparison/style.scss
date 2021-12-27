@@ -1,0 +1,102 @@
+@import '~theme/_mediaQueryMixins';
+@import '~theme/_slick.css';
+@import '~theme/_slick-theme.css';
+
+.responsiveCarouselComparison {
+  padding-bottom: 2.5rem;
+
+  .slick-slide {
+    padding: 0.3rem;
+  }
+  .slick-dots {
+    display: block;
+    width: 100%;
+    bottom: 0;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+
+    li {
+      margin: 1rem 0;
+      button {
+        &:before {
+          content: '';
+          opacity: 1;
+          border-radius: 50%;
+          background: var(--color-light-grey);
+          width: 0.625rem;
+          height: 0.625rem;
+        }
+      }
+
+      &.slick-active {
+        button {
+          &:before {
+            background: var(--color-azure);
+          }
+        }
+      }
+      @include respondBelow(xl) {
+        margin: 0.5rem 0;
+      }
+    }
+  }
+
+  &__owl-theme {
+    .owl-nav.disabled {
+      + .owl-dots {
+        margin: 1rem 0;
+
+        @include respondBelow(xl) {
+          margin: 0.5rem 0;
+        }
+      }
+    }
+    .owl-dots {
+      .owl-dot {
+        span {
+          width: 1.25rem;
+          height: 1.25rem;
+
+          @include respondBelow(xl) {
+            width: 1rem;
+            height: 1rem;
+          }
+
+          @include respondBelow(sm) {
+            width: 0.625rem;
+            height: 0.625rem;
+          }
+        }
+        &:hover {
+          span {
+            background: var(--color-azure);
+          }
+        }
+        &.active {
+          span {
+            background: var(--color-azure);
+          }
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .owl-item {
+      padding: 1rem;
+    }
+
+    .comparisonItem {
+      &__listItem {
+        width: 100%;
+
+        &.withData {
+          margin: -0.7rem -0.8rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+@import '~theme/_mediaQueryMixins';
+
+.brandLogos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  &__item {
+    width: calc(100% / 5);
+    max-width: 250px;
+    flex: 1 1 15%;
+    height: 7rem;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-white);
+    box-shadow: 0 7px 14px 0 rgba(33, 37, 41, 0.1), 0 2px 4px 0 rgba(33, 37, 41, 0.1);
+
+    > img {
+      max-width: 100%;
+    }
+    @include respondBelow(sm) {
+      flex: 1 1 33%;
+    }
+  }
+}

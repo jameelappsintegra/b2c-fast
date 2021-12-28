@@ -1,0 +1,74 @@
+.bannerWrapper {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 15;
+  background-color: var(--color-white);
+  padding: 15px 54px;
+  border-top: 1px solid var(--color-azure) !important;
+  @media (max-width: 812px) {
+    padding: 0;
+  }
+}
+.bannerContainer {
+  position: relative;
+  @media (max-width: 812px) {
+    padding: 45px 20px 15px 20px;
+  }
+  .viewCookieBtn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    @media (max-width: 812px) {
+      margin-top: 10px;
+    }
+  }
+  .bannerText {
+    margin: 0;
+    font-family: PoppinsMedium;
+    font-size: 0.75rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    display: flex;
+    color: var(--color-azure);
+    align-items: center;
+    @media (max-width: 812px) {
+      font-size: 0.688rem;
+      width: 80%;
+      margin: 0;
+    }
+    .bannerTextTitle {
+      text-transform: uppercase;
+    }
+    .bannerTextDesc {
+      margin: 0;
+      display: inline-block;
+      margin-right: 5px;
+      text-transform: none;
+    }
+    .signUpLink {
+      font-weight: bold;
+      text-decoration: underline;
+      cursor: pointer;
+      &:hover {
+        color: var(--color-white);
+        text-decoration: none;
+      }
+    }
+  }
+  .bannerText_right {
+    height: 22px;
+    right: -10px;
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+    background: var(--color-white);
+    @media (max-width: 812px) {
+      right: 30px;
+      top: 10px;
+    }
+  }
+}

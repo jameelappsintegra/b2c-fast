@@ -1,0 +1,197 @@
+// customecheckbox
+
+.custom-checkbox {
+  .custom-control-input {
+    &:checked {
+      ~ .custom-control-label::before {
+        background-color: var(--color-azure);
+        border-color: var(--color-azure);
+      }
+      ~ .custom-control-label::after {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='white' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+      }
+    }
+    &:focus {
+      ~ .custom-control-label::before {
+        box-shadow: none;
+      }
+      &:not(:checked) {
+        ~ .custom-control-label {
+          &:before {
+            border-color: var(--color-cloudy-blue);
+          }
+        }
+      }
+    }
+  }
+
+  .custom-control-label {
+    padding-left: 1.5rem;
+    user-select: none;
+    cursor: pointer;
+    font-family: PoppinsMedium;
+    font-size: 1.25rem;
+    color: var(--color-slate-grey);
+
+    &:before {
+      background-color: var(--color-light-grey);
+      width: 1.625rem;
+      height: 1.625rem;
+      border-radius: 2px;
+      top: 0.05rem;
+      right: -1.5rem;
+      border-color: var(--color-cloudy-blue);
+    }
+
+    &:before,
+    &:after {
+      width: 1.625rem;
+      height: 1.625rem;
+      top: 0.15rem;
+      left: -1.5rem;
+      border-radius: 2px !important;
+
+      @include respondBelow(xl) {
+        left: -1rem;
+        top: -0.05rem;
+      }
+    }
+
+    @include respondBelow(xl) {
+      font-size: 1rem;
+    }
+  }
+
+  &.right {
+    .custom-control-label {
+      padding-left: 0;
+      padding-right: 2.5rem;
+      padding-top: 0.1rem;
+
+      &:before,
+      &:after {
+        right: 0;
+        left: auto;
+
+        @include respondBelow(xl) {
+          left: auto;
+        }
+      }
+    }
+  }
+  &.left {
+    .custom-control-label {
+      padding-right: 0;
+      padding-left: 0rem;
+      padding-top: 0.1rem;
+
+      &:before,
+      &:after {
+        right: auto;
+        left: 0;
+
+        @include respondBelow(xl) {
+          right: auto;
+        }
+      }
+    }
+  }
+
+  @include respondBelow(sm) {
+    margin-bottom: 1rem;
+  }
+}
+
+.custom-control {
+  position: relative;
+  z-index: 1;
+  display: block;
+  min-height: 1.5rem;
+  padding-left: 1.5rem;
+  color-adjust: exact;
+}
+
+input[type='radio'],
+input[type='checkbox'] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.custom-control-input {
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  width: 1rem;
+  height: 1.25rem;
+  opacity: 0;
+}
+
+.custom-control-label::after {
+  position: absolute;
+  top: 0.25rem;
+  left: -1.5rem;
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  content: '';
+  background: no-repeat 50% / 50% 50%;
+}
+
+.custom-checkbox .custom-control-label:before,
+.custom-checkbox .custom-control-label:after {
+  width: 1.625rem;
+  height: 1.625rem;
+  top: 0.15rem;
+  left: 0rem;
+  border-radius: 2px !important;
+}
+
+.custom-checkbox.right .custom-control-label:before,
+.custom-checkbox.right .custom-control-label:after {
+  right: 0;
+  left: auto;
+}
+
+.custom-checkbox.right .custom-control-label:before,
+.custom-checkbox.right .custom-control-label:after {
+  left: auto;
+}
+.custom-checkbox.right .custom-control-label:before,
+.custom-checkbox.right .custom-control-label:after {
+  right: 0;
+  left: auto;
+}
+.custom-checkbox.right .custom-control-label:before,
+.custom-checkbox.right .custom-control-label:after,
+.custom-checkbox.left .custom-control-label:before,
+.custom-checkbox.left .custom-control-label:after {
+  width: 18px;
+  height: 18px;
+}
+.custom-checkbox .custom-control-label:before {
+  background-color: var(--color-light-grey);
+  width: 1.625rem;
+  height: 1.625rem;
+  border-radius: 2px;
+  top: 0.05rem;
+  right: 0rem;
+  border-color: var(--color-cloudy-blue);
+}
+
+.custom-control-label::before,
+.custom-file-label,
+.custom-select {
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.custom-control-label::before {
+  position: absolute;
+  top: 0.25rem;
+  left: -1.5rem;
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  pointer-events: none;
+  content: '';
+  background-color: #fff;
+  border: #adb5bd solid 1px;
+}

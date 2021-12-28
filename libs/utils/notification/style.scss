@@ -1,0 +1,10 @@
+.Toastify {
+  &__toast--success {
+    background-color: var(--color-azure);
+  }
+  &__close-button {
+    &:focus {
+      outline: none;
+    }
+  }
+}
